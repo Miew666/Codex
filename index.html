@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101426"><title>Mini Tetris</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101426;color:#eef2ff;font:16px system-ui,sans-serif;min-height:100dvh;display:flex;justify-content:center}main{width:min(100%,420px);padding:16px 18px max(18px,env(safe-area-inset-bottom));text-align:center}header{display:flex;align-items:center;justify-content:space-between}h1{font-size:25px;margin:0}header p{font-size:13px;color:#aab6d4}.stats{display:flex;justify-content:space-between;margin:10px 0;font-variant-numeric:tabular-nums}.board{position:relative;width:min(100%,calc(55dvh * .5));margin:auto}canvas{display:block;width:100%;height:auto;border:2px solid #354364;border-radius:8px;background:#080d19}.overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#080d19dc;padding:12px;border-radius:8px}.overlay[hidden]{display:none}.overlay strong{font-size:25px}.overlay p{color:#bac6e5}button{border:0;border-radius:12px;background:#2b395b;color:white;font:600 17px system-ui;min-height:48px;padding:10px 16px;touch-action:manipulation;cursor:pointer}button:active{background:#546b9b}button:focus-visible{outline:3px solid #67e8f9;outline-offset:3px}.primary{background:#6d4cfa}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.wide{grid-column:span 2}.hint{color:#9aaacc;font-size:12px;line-height:1.5;margin:12px 0}#status{min-height:20px;color:#c4b5fd;font-size:13px}
+</style>
+</head>
+<body><main>
+<header><h1>🧩 Mini Tetris</h1><button id="pause" aria-label="Spiel pausieren">Pause</button></header>
+<div class="stats"><span>Punkte <b id="score">0</b></span><span>Linien <b id="lines">0</b></span><span>Rekord <b id="best">0</b></span></div>
+<div class="board"><canvas id="board" width="300" height="600" aria-label="Tetris-Spielfeld mit 10 Spalten und 20 Reihen"></canvas>
+<div class="overlay" id="overlay"><strong id="title">Mini Tetris</strong><p id="message">Fülle Reihen und sammle Punkte.</p><button class="primary" id="start">Spiel starten</button></div></div>
+<div class="controls"><button data-action="left" aria-label="Nach links">◀</button><button data-action="rotate" aria-label="Drehen">↻</button><button data-action="right" aria-label="Nach rechts">▶</button><button data-action="down" aria-label="Nach unten">▼</button><button class="wide primary" data-action="drop">Ganz runter ⤓</button><button class="wide" id="restart">Neues Spiel</button></div>
+<div id="status" role="status" aria-live="polite">Bereit zum Spielen</div>
+<p class="hint">Handy: Tasten unter dem Spielfeld nutzen.<br>Tastatur: ← → bewegen · ↑ drehen · ↓ senken<br>Leertaste: fallen lassen · P: Pause</p>
+</main><script src="game.js"></script></body></html>
